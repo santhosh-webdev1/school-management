@@ -9,8 +9,6 @@ import * as bcrypt from 'bcryptjs';
 import { MailService } from 'src/mail/mail.service';
 import { UserRole } from './enums/user-role';
 
-
-
 @Injectable()
 export class UsersService {
 
