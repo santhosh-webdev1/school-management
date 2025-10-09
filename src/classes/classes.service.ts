@@ -42,8 +42,3 @@ import { UpdateClassDto } from './dto/update-class.dto';
 
 
 }
-
-
-
-
-
