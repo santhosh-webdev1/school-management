@@ -1,4 +1,5 @@
 import { Attendance } from "src/attendance/entities/attendance.entity";
+import { Subjects } from "src/subjects/entities/subject.entity";
 import { TeacherAssignment } from "src/teacher-assignment/entities/teacher-assignment.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -7,21 +8,28 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 export class Classes {
 
     @PrimaryGeneratedColumn()
-    id : number;
+    id: number;
 
     @Column()
-    standard : string;
+    standard: string;
 
     @Column()
-    section : string;
+    section: string;
 
     @Column()
-    start_year : number;
+    start_year: number;
 
     @OneToMany(() => TeacherAssignment, (ta) => ta.classes)
-    teacherAssignments : TeacherAssignment[];
+    teacherAssignments: TeacherAssignment[];
 
     @OneToMany(() => Attendance, (attendance) => attendance.classes)
-    attendanceRecords : Attendance[];
+    attendanceRecords: Attendance[];
+
+    @OneToMany(() => Subjects, (subject) => subject.classes)
+    subject: Subjects[];
+
+    @OneToMany(() => User, (user) => user.teachesClasses)
+    teachers: User[];
+
 
 }

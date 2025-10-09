@@ -1,5 +1,6 @@
+import { Classes } from "src/classes/entities/classes.entity";
 import { TeacherAssignment } from "src/teacher-assignment/entities/teacher-assignment.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('subjects')
 export class Subjects {
@@ -16,5 +17,8 @@ export class Subjects {
 
     @OneToMany(() => TeacherAssignment, (ta) => ta.subject)
     teacherAssignments : TeacherAssignment[];
+    
+    @ManyToOne(() => Classes, (cls) => cls.subject)
+    classes: Classes;
 
 }
